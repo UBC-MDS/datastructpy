@@ -24,10 +24,12 @@ class BinarySearchTree:
     -------
     insert(key)
         Inserts a key into the BST.
-    delete(key)
-        Deletes a key from the BST.
     search(key)
         Searches for a key in the BST.
+    delete(key)
+        Deletes a key from the BST.
+    list_to_tree(elements)
+        Constructs a BST from a list of elements.
     """
 
     def __init__(self):
@@ -65,6 +67,39 @@ class BinarySearchTree:
         bst.insert(12)  # Insert a node in the right subtree
         print(bst.root.left.key)  # Output: 5
         print(bst.root.right.key) # Output: 15
+        """
+    
+    def search(self, key):
+        """
+        Checks if a value exists in the Binary Search Tree (BST).
+
+        This method traverses the BST to determine if a node with the specified key exists.
+        It starts from the root and:
+        - Returns True if a node with the given key is found.
+        - Returns False if the key is not present in the tree.
+
+        Parameters
+        ----------
+        key : int
+            The value to search for in the tree.
+
+        Returns
+        -------
+        bool
+            - True if a node with the specified key exists in the tree.
+            - False if the key does not exist or the tree is empty.
+
+        Examples
+        --------
+        # Creating a Binary Search Tree
+        bst = BinarySearchTree()
+        bst.insert(10)
+        bst.insert(5)
+        bst.insert(15)
+
+        # Searching for values in the tree
+        print(bst.search(5))  # Output: True (5 exists in the tree)
+        print(bst.search(20)) # Output: False (20 does not exist in the tree)
         """
 
     def delete(self, key):
@@ -128,36 +163,4 @@ class BinarySearchTree:
         print(bst.root.left.key)  # Output: 5 (left child of root)
         print(bst.root.right.key) # Output: 15 (right child of root)
         """
-    @staticmethod
-    def searchBST(root, value):
-        """
-    Search for a value in the Binary Search Tree (BST).
 
-    This function recursively searches the tree to find the node containing the specified value.
-    It compares the value to the root node's value and traverses left or right based on the comparison.
-    If the value is found, the function returns True; otherwise, it returns False.
-
-    Parameters
-    ----------
-    root : BinarySearchTree
-        The root of the tree or subtree to search. Can be None if the tree is empty.
-    value : int
-        The value to search for in the tree.
-
-    Returns
-    -------
-    bool
-        - True if the value is found in the tree.
-        - False if the value is not found or the tree is empty.
-
-    Examples
-    --------
-    # Creating a Binary Search Tree
-    bst = BinarySearchTree(10)
-    bst.insert(5)
-    bst.insert(15)
-
-    # Searching for values in the tree
-    print(searchBST(bst, 5))  # Output: True
-    print(searchBST(bst, 20)) # Output: False
-    """
