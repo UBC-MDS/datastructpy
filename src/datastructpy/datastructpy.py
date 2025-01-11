@@ -43,10 +43,26 @@ class BinarySearchTree:
 
     def insert(self, key):
         """
-        Inserts a new key into the binary search tree.
+        Inserts a key into the binary search tree.
+
+        This function inserts a new value into the tree, maintaining the
+        properties of a BST:
+        - Values smaller than the current node's key go to the left subtree.
+        - Values larger than the current node's key go to the right subtree.
 
         Parameters
         ----------
         key : int
-            The value to be inserted.
+            The value to insert into the BST.
+
+        Examples
+        --------
+        # Creating a Binary Search Tree and inserting values
+        bst = BinarySearchTree()
+        bst.insert(10)  # Insert root
+        bst.insert(5)   # Insert left child
+        bst.insert(15)  # Insert right child
+        bst.insert(12)  # Insert a node in the right subtree
+        print(bst.root.left.key)  # Output: 5
+        print(bst.root.right.key) # Output: 15
         """
