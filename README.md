@@ -17,6 +17,9 @@ datastructpy is a Python package designed to provide customizable and practical 
         - This method deletes a specified key from a Binary Search Tree (BST). If the key is found, it removes the node while maintaining BST properties. For nodes with two children, it replaces the node with its in-order successor (smallest value in the right subtree) and then deletes the successor node. If the node has one child or no children, it is removed, and its child (if any) takes its place.
     - **`list_to_tree(elements)`**:
         - This static method constructs a Binary Search Tree (BST) from a given list of elements. It sequentially inserts each element into the BST, ensuring the tree maintains its BST properties. The method is accessed directly via the BinarySearchTree class and returns a BinarySearchTree object with the provided elements organized in a valid BST structure.
+    - **`searchBST(root, value)`**:
+    - This function searches for a specified value within a Binary Search Tree (BST). It traverses the tree recursively, comparing the value with the root and navigating left or right based on the comparison.
+    - **Returns**: `True` if the value is found, `False` otherwise.
 
 ## datastructpy in Python Ecosystem
 datastructpy complements Python’s standard library by providing customizable implementations of essential data structures for learning and interview preparation. While modules like collections (e.g., deque) and heapq focus on optimized, ready-to-use structures, datastructpy emphasizes clarity and adaptability, making it ideal for understanding core concepts. Unlike specialized libraries like [pyrsistent](https://pypi.org/project/pyrsistent/) or [sortedcontainers](https://pypi.org/project/sortedcontainers/), datastructpy bridges the gap between practical functionality and educational needs, carving out a unique space in the Python ecosystem.
@@ -62,6 +65,10 @@ else:
 
 bst.delete(10)  # Delete the root
 print(bst.root.key)             # Output: 15 (new root after deletion)
+
+# Search for a value
+result = searchBST(root, 15)  # Returns True
+print(result)  # Output: True
 
 # Final structure of the tree
 print("Final Tree Structure:")

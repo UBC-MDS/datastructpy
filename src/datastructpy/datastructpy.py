@@ -128,3 +128,36 @@ class BinarySearchTree:
         print(bst.root.left.key)  # Output: 5 (left child of root)
         print(bst.root.right.key) # Output: 15 (right child of root)
         """
+    @staticmethod
+    def searchBST(root, value):
+        """
+    Search for a value in the Binary Search Tree (BST).
+
+    This function recursively searches the tree to find the node containing the specified value.
+    It compares the value to the root node's value and traverses left or right based on the comparison.
+    If the value is found, the function returns True; otherwise, it returns False.
+
+    Parameters
+    ----------
+    root : BinarySearchTree
+        The root of the tree or subtree to search. Can be None if the tree is empty.
+    value : int
+        The value to search for in the tree.
+
+    Returns
+    -------
+    bool
+        - True if the value is found in the tree.
+        - False if the value is not found or the tree is empty.
+
+    Examples
+    --------
+    # Creating a Binary Search Tree
+    bst = BinarySearchTree(10)
+    bst.insert(5)
+    bst.insert(15)
+
+    # Searching for values in the tree
+    print(searchBST(bst, 5))  # Output: True
+    print(searchBST(bst, 20)) # Output: False
+    """
