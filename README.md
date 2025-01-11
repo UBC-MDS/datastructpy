@@ -2,6 +2,10 @@
 
 Data Structures for Python
 
+## Contributors
+
+Albert Halim, Azin Piran, Javier Martinez, Jessica Kuo
+
 ## Installation
 
 ```bash
