@@ -20,6 +20,7 @@ datastructpy is a Python package designed to provide customizable and practical 
 
 ## datastructpy in Python Ecosystem
 datastructpy complements Python’s standard library by providing customizable implementations of essential data structures for learning and interview preparation. While modules like collections (e.g., deque) and heapq focus on optimized, ready-to-use structures, datastructpy emphasizes clarity and adaptability, making it ideal for understanding core concepts. Unlike specialized libraries like [pyrsistent](https://pypi.org/project/pyrsistent/) or [sortedcontainers](https://pypi.org/project/sortedcontainers/), datastructpy bridges the gap between practical functionality and educational needs, carving out a unique space in the Python ecosystem.
+
 ## Installation
 
 ```bash
