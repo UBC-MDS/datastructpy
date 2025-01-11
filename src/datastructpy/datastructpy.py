@@ -94,4 +94,37 @@ class BinarySearchTree:
         bst.delete(5)  # Delete a leaf node
         print(bst.root.left)  # Output: None
         """
+    
+    @staticmethod
+    def list_to_tree(elements):
+        """
+        Constructs a Binary Search Tree (BST) from a list of elements.
 
+        This function takes a list of numerical values and inserts them into a BST
+        in the order they appear in the list. Duplicate values are ignored 
+        to maintain the properties of a BST.
+
+        Parameters
+        ----------
+        elements : list of int
+            A list of integers to be inserted into the BST.
+
+        Returns
+        -------
+        BinarySearchTree
+            A BinarySearchTree object containing all the elements from the input list.
+
+        Raises
+        ------
+        ValueError
+            If the input is not a list or contains non-integer elements.
+
+        Examples
+        --------
+        # Creating a BST from a list of values
+        elements = [10, 5, 15, 12, 20]
+        bst = BinarySearchTree.list_to_tree(elements)
+        print(bst.root.key)       # Output: 10 (root node)
+        print(bst.root.left.key)  # Output: 5 (left child of root)
+        print(bst.root.right.key) # Output: 15 (right child of root)
+        """
