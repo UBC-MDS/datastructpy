@@ -17,9 +17,7 @@ $ pip install datastructpy
 ## Usage
 
 ### insertBST(root, key):
-This function inserts a specified key into a Binary Search Tree (BST). It traverses the tree recursively to find the correct position where the key should be placed, ensuring that the BST properties are maintained. If the root is None, a new node is created as the root.
-    - If the key is smaller than the current node's key, it is inserted in the left subtree.
-    - If the key is larger than the current node's key, it is inserted in the right subtree.
+This function inserts a specified key into a Binary Search Tree (BST). It traverses the tree recursively to find the correct position where the key should be placed, ensuring that the BST properties are maintained. If the root is None, a new node is created as the root. If the key is smaller than the current node's key, it is inserted in the left subtree. If the key is larger than the current node's key, it is inserted in the right subtree.
 
 ### Example usage:
 
