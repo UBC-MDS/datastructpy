@@ -23,3 +23,10 @@ Interested in contributing? Check out the contributing guidelines. Please note t
 ## Credits
 
 `datastructpy` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
+
+## Contributors
+
+- Javier Martinez
+- Azin Piran
+- Jessica Kuo
+- Albert Halim
