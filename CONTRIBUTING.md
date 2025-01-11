@@ -1,73 +1,63 @@
-# Contributing
+# Contributing to datastructpy
 
-Contributions are welcome, and they are greatly appreciated! Every little bit
-helps, and credit will always be given.
+We welcome input, feedback, bug reports, and contributions via the datastructpy [GitHub Repository](https://github.com/UBC-MDS/datastructpy). Your participation helps improve this project and ensures its continued success.
 
-## Types of Contributions
+All contributions, suggestions, and feedback are accepted under the [Project’s license](./LICENSE.md). By contributing, you represent that you own or have the authority to submit the contribution under the [Project's license](./LICENSE.md). All feedback, suggestions, or contributions are not confidential. The project abides by the [UBC-MDS Code of Conduct](https://ubc-mds.github.io/resources_pages/code_of_conduct/).
 
-### Report Bugs
+## How to Contribute Code to datastructpy
 
-If you are reporting a bug, please include:
+### Setting Up Your Environment
 
-* Your operating system name and version.
-* Any details about your local setup that might be helpful in troubleshooting.
-* Detailed steps to reproduce the bug.
+To contribute, you must first be invited by the administrators of the [UBC-MDS GitHub organization](https://github.com/UBC-MDS). Once you have access:
 
-### Fix Bugs
+1. **Clone the Repository**  
+   Fork the `datastructpy` repository on GitHub, then clone your fork to your local machine. For more details on forking, see the [GitHub Documentation](https://help.github.com/en/articles/fork-a-repo).
 
-Look through the GitHub issues for bugs. Anything tagged with "bug" and "help
-wanted" is open to whoever wants to implement it.
+   ```bash
+   git clone https://github.com/YOUR-USERNAME/datastructpy.git
+   ```
 
-### Implement Features
+2.	**Sync Your Fork**
+   To keep your fork up-to-date with changes in the main repository, use the fetch upstream button on GitHub.
 
-Look through the GitHub issues for features. Anything tagged with "enhancement"
-and "help wanted" is open to whoever wants to implement it.
+### Creating a Branch
 
-### Write Documentation
+Before making changes, create a new branch for your work:
 
-You can never have enough documentation! Please feel free to contribute to any
-part of the documentation, such as the official docs, docstrings, or even
-on the web in blog posts, articles, and such.
+```bash
+git switch -c <your-branch-name>
+```
 
-### Submit Feedback
+With this branch checked out, make the desired changes to the project.
 
-If you are proposing a feature:
+Creating a Pull Request
 
-* Explain in detail how it would work.
-* Keep the scope as narrow as possible, to make it easier to implement.
-* Remember that this is a volunteer-driven project, and that contributions
-  are welcome :)
+When you’re ready to submit your changes:
+1.	Commit Your Changes
+   Add and commit your changes to the new branch:
 
-## Get Started!
+   ```bash
+    git add <modified-files>
+    git commit -m "Descriptive message about your changes"
+    git push origin <your-branch-name>
+   ```
 
-Ready to contribute? Here's how to set up `datastructpy` for local development.
+	2.	Submit a Pull Request
+     Go to the GitHub repository page and create a pull request (PR) from your branch to the main repository. Follow these steps:
+	    •	Provide a clear description of the changes you made and their purpose.
+	    •	Tag an administrator or maintainer as a reviewer to ensure your PR is reviewed promptly.
+     For detailed instructions, refer to Creating a Pull Request.
+	3.	Communicate in the Pull Request
+     Use the PR discussion thread to communicate with reviewers and collaborators. Respond to feedback and push updates to your branch as needed.
 
-1. Download a copy of `datastructpy` locally.
-2. Install `datastructpy` using `poetry`:
+### Getting Your PR Merged
 
-    ```console
-    $ poetry install
-    ```
+After submitting your Pull Request (PR), reviewers may provide feedback or request changes. Make the necessary updates in your branch and push the changes to automatically update the PR. Once your PR is approved, it can be merged into the main branch.
 
-3. Use `git` (or similar) to create a branch for local development and make your changes:
+### Additional Notes
+	•	Follow existing code style and conventions in the project.
+	•	Update relevant documentation (if applicable) as part of your PR.
+	•	Ensure new features are thoroughly tested and maintain existing functionality.
+	•	Keep communication polite and constructive in all project-related discussions.
 
-    ```console
-    $ git checkout -b name-of-your-bugfix-or-feature
-    ```
-
-4. When you're done making changes, check that your changes conform to any code formatting requirements and pass any tests.
-
-5. Commit your changes and open a pull request.
-
-## Pull Request Guidelines
-
-Before you submit a pull request, check that it meets these guidelines:
-
-1. The pull request should include additional tests if appropriate.
-2. If the pull request adds functionality, the docs should be updated.
-3. The pull request should work for all currently supported operating systems and versions of Python.
-
-## Code of Conduct
-
-Please note that the `datastructpy` project is released with a
-Code of Conduct. By contributing to this project you agree to abide by its terms.
+Thank you for contributing to datastructpy! Your efforts help make this project better for everyone :)
