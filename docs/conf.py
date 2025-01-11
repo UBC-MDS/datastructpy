@@ -7,8 +7,8 @@
 # -- Project information -----------------------------------------------------
 
 project = u"datastructpy"
-copyright = u"2025, group9_ubc_mds_2025"
-author = u"group9_ubc_mds_2025"
+copyright = u"2025, Albert Halim, Azin Piran, Javier Martinez, Jessica Kuo"
+author = u"Albert Halim, Azin Piran, Javier Martinez, Jessica Kuo"
 
 # -- General configuration ---------------------------------------------------
 
