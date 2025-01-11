@@ -50,3 +50,12 @@ class BinarySearchTree:
         key : int
             The value to be inserted.
         """
+
+    def delete(self, key):
+        """Delete a key from the binary search tree.
+
+        Parameters
+        ----------
+        value : int or float
+            The value to delete from the binary search tree.
+        """
