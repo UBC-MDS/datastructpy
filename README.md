@@ -1,6 +1,6 @@
 # datastructpy
 
-datastructpy is a Python package designed to provide customizable and practical implementations of essential data structures. It is tailored to help users prepare for technical interviews and coding challenges by offering intuitive, modular, and efficient solutions. The library emphasizes clarity and functionality, making it a valuable resource for learning, practicing, and mastering data structure concepts. Whether you’re solving algorithmic problems or building foundational coding skills, datastructpy is crafted to support your success.
+`datastructpy` is a Python package designed to provide customizable and practical implementations of essential data structures, such as Binary Search Trees (BST). It is tailored to help users prepare for technical interviews, coding challenges, and educational projects by offering intuitive and efficient solutions. The package stands out by emphasizing simplicity and clarity while maintaining detailed documentation and modular implementations suited for both learning and practical use. Unlike visualization-heavy libraries, the package focuses on providing a hands-on, customizable experience for working with binary trees and other data structures. If you require a structured, minimalistic approach without additional dependencies or overhead, `datastructpy` serves as a valuable alternative!
 
 ## Data Structures Included:
 
@@ -13,7 +13,7 @@ datastructpy is a Python package designed to provide customizable and practical 
     **Methods**
     - **`insert(root, key)`**:
         - This method inserts a specified key into a Binary Search Tree (BST) by recursively finding the correct position while maintaining BST properties, creating a new root node if the tree is empty, inserting into the left subtree if the key is smaller, or the right subtree if larger.
-    - **`search(key)`**:
+    - **`search(root, key)`**:
         - This method checks whether a specified key exists in the Binary Search Tree (BST). It starts from the root and traverses the tree based on the key’s value, returning True if the key is found and False otherwise. This method is called directly on the BinarySearchTree instance, providing an easy way to verify the presence of a value in the tree.
     - **`delete(root, key)`**:
         - This method deletes a specified key from a Binary Search Tree (BST). If the key is found, it removes the node while maintaining BST properties. For nodes with two children, it replaces the node with its in-order successor (smallest value in the right subtree) and then deletes the successor node. If the node has one child or no children, it is removed, and its child (if any) takes its place.
@@ -21,7 +21,7 @@ datastructpy is a Python package designed to provide customizable and practical 
         - This static method constructs a Binary Search Tree (BST) from a given list of elements. It sequentially inserts each element into the BST, ensuring the tree maintains its BST properties. The method is accessed directly via the BinarySearchTree class and returns a BinarySearchTree object with the provided elements organized in a valid BST structure.
 
 ## datastructpy in Python Ecosystem
-datastructpy complements Python’s standard library by providing customizable implementations of essential data structures for learning and interview preparation. While modules like collections (e.g., deque) and heapq focus on optimized, ready-to-use structures, datastructpy emphasizes clarity and adaptability, making it ideal for understanding core concepts. Unlike specialized libraries like [pyrsistent](https://pypi.org/project/pyrsistent/) or [sortedcontainers](https://pypi.org/project/sortedcontainers/), datastructpy bridges the gap between practical functionality and educational needs, carving out a unique space in the Python ecosystem.
+`datastructpy` complements Python’s standard library by providing customizable implementations of essential data structures for learning and interview preparation. While modules like collections (e.g., deque) and heapq focus on optimized, ready-to-use structures, datastructpy emphasizes clarity and adaptability, making it ideal for understanding core concepts. Unlike specialized libraries like [pyrsistent](https://pypi.org/project/pyrsistent/) or [sortedcontainers](https://pypi.org/project/sortedcontainers/), `datastructpy` bridges the gap between practical functionality and educational needs, carving out a unique space in the Python ecosystem.
 
 ## Installation
 
@@ -83,7 +83,7 @@ Interested in contributing? Check out the contributing guidelines. Please note t
 
 ## License
 
-`datastructpy` was created by group9_ubc_mds_2025. It is licensed under the terms of the MIT license.
+`datastructpy` was created by Albert Halim, Azin Piran, Javier Martinez, Jessica Kuo. It is licensed under the terms of the MIT license.
 
 ## Credits
 
@@ -91,7 +91,4 @@ Interested in contributing? Check out the contributing guidelines. Please note t
 
 ## Contributors
 
-- Javier Martinez
-- Azin Piran
-- Jessica Kuo
-- Albert Halim
+Albert Halim, Azin Piran, Javier Martinez, Jessica Kuo
