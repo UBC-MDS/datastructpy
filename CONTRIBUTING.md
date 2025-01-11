@@ -2,7 +2,7 @@
 
 We welcome input, feedback, bug reports, and contributions via the datastructpy [GitHub Repository](https://github.com/UBC-MDS/datastructpy). Your participation helps improve this project and ensures its continued success.
 
-All contributions, suggestions, and feedback are accepted under the [Project’s license](./LICENSE.md). By contributing, you represent that you own or have the authority to submit the contribution under the [Project's license](./LICENSE.md). All feedback, suggestions, or contributions are not confidential. The project abides by the [UBC-MDS Code of Conduct](https://ubc-mds.github.io/resources_pages/code_of_conduct/).
+All contributions, suggestions, and feedback are accepted under the [Project’s license](./LICENSE). By contributing, you represent that you own or have the authority to submit the contribution under the [Project's license](./LICENSE). All feedback, suggestions, or contributions are not confidential. The project abides by the [UBC-MDS Code of Conduct](https://ubc-mds.github.io/resources_pages/code_of_conduct/).
 
 ## How to Contribute Code to datastructpy
 
