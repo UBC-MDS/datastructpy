@@ -24,10 +24,12 @@ class BinarySearchTree:
     -------
     insert(key)
         Inserts a key into the BST.
-    delete(key)
-        Deletes a key from the BST.
     search(key)
         Searches for a key in the BST.
+    delete(key)
+        Deletes a key from the BST.
+    list_to_tree(elements)
+        Constructs a BST from a list of elements.
     """
 
     def __init__(self):

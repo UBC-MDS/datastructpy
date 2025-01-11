@@ -55,7 +55,7 @@ print(bst.root.right.left.key)  # Output: 12 (right subtree of 10, left child of
 print(bst.root.left.left.key)   # Output: 2 (left child of 5)
 
 # Search for values in the BST
-print("Searching for Values:")
+print("Searching for Keys:")
 print(bst.search(8))   # Output: True (8 exists in the tree)
 print(bst.search(20))  # Output: False (20 does not exist in the tree)
 
