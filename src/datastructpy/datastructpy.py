@@ -66,3 +66,32 @@ class BinarySearchTree:
         print(bst.root.left.key)  # Output: 5
         print(bst.root.right.key) # Output: 15
         """
+
+    def delete(self, key):
+        """Delete a value from the BST.
+
+        This method removes a node with the specified value from the tree while maintaining the properties of a BST. 
+        If the node to be deleted has two children, it replaces the node's value with its in-order successor 
+        (the smallest value in the right subtree) and deletes the successor.
+
+        Parameters
+        ----------
+        value : int or float
+            The value to delete from the binary search tree.
+
+        Examples
+        --------
+        # Creating a BST and deleting a node
+        bst = BST()
+        bst.insert(10)
+        bst.insert(5)
+        bst.insert(15)
+        bst.insert(12)
+
+        bst.delete(10)  # Delete the root
+        print(bst.root.value)  # Output: 12 (in-order successor)
+
+        bst.delete(5)  # Delete a leaf node
+        print(bst.root.left)  # Output: None
+        """
+
