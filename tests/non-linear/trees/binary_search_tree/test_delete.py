@@ -1,0 +1,2 @@
+from datastructpy.non_linear.trees.binary_search_trees import BinarySearchTree
+
