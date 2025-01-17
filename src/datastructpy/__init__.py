@@ -4,7 +4,7 @@ __version__ = version("datastructpy")
 
 # Import key submodules or classes for easy access
 from .node import Node
-from .non_linear.trees.binary_search_trees import BinarySearchTree
+from non_linear.trees.binary_search_trees import BinarySearchTree
 
 # Define the public API of the package
 __all__ = [
