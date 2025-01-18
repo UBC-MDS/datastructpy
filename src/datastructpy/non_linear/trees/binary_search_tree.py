@@ -1,3 +1,6 @@
+from datastructpy.node import Node
+
+
 class BinarySearchTree:
     """
     A class representing a binary search tree (BST).
@@ -50,7 +53,29 @@ class BinarySearchTree:
         print(bst.root.left.key)  # Output: 5
         print(bst.root.right.key) # Output: 15
         """
-    
+        if self.root is None:
+            self.root = Node(key)
+        else:
+            current = self.root
+            while True:
+                if key < current.key:
+                    # Go to the left subtree
+                    if current.left is None:
+                        current.left = Node(key)
+                        break
+                    else:
+                        current = current.left
+                elif key > current.key:
+                    # Go to the right subtree
+                    if current.right is None:
+                        current.right = Node(key)
+                        break
+                    else:
+                        current = current.right
+                else:
+                    # The key is already in the BST (no duplicates allowed)
+                    break
+ 
     def search(self, key):
         """
         Checks if a value exists in the Binary Search Tree (BST).
