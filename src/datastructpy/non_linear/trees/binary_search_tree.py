@@ -54,6 +54,11 @@ class BinarySearchTree:
         print(bst.root.left.key)  # Output: 5
         print(bst.root.right.key) # Output: 15
         """
+        if key is None:
+            raise TypeError("None values are not allowed in the BST.")
+        if not isinstance(key, int):
+            raise TypeError("Only integers are allowed in the BST.")
+            
         if self.root is None:
             self.root = Node(key)
         else:
@@ -76,7 +81,7 @@ class BinarySearchTree:
                 else:
                     # The key is already in the BST (no duplicates allowed)
                     break
-
+                    
     def search(self, key, algorithm='dfs'):
         """
         Searches for a key in the Binary Search Tree (BST) using the specified algorithm.
