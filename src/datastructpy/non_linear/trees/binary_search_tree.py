@@ -53,8 +53,43 @@ class BinarySearchTree:
         bst.insert(12)  # Insert a node in the right subtree
         print(bst.root.left.key)  # Output: 5
         print(bst.root.right.key) # Output: 15
+            if self.root is None:
+            self.root = Node(key)
+            return
+
+        current = self.root
+        while True:
+            if key < current.key:
+                if current.left is None:
+                    current.left = Node(key)
+                    return
+                current = current.left
+            else:
+                if current.right is None:
+                    current.right = Node(key)
+                    return
+                current = current.right
         """
-    
+
+        if self.root is None:
+            self.root = Node(key)
+            return
+
+        current = self.root
+        while True:
+            if key < current.key:
+                if current.left is None:
+                    current.left = Node(key)
+                    return
+                current = current.left
+            else:
+                if current.right is None:
+                    current.right = Node(key)
+                    return
+                current = current.right
+
+
+
     def search(self, key, algorithm='dfs'):
         """
         Searches for a key in the Binary Search Tree (BST) using the specified algorithm.
@@ -167,3 +202,13 @@ class BinarySearchTree:
         print(bst.root.left.key)  # Output: 5 (left child of root)
         print(bst.root.right.key) # Output: 15 (right child of root)
         """
+        if not isinstance(elements, list):
+            raise ValueError("Input must be a list of integers.")
+
+        bst = BinarySearchTree()
+        for element in elements:
+            if not isinstance(element, int):
+                raise ValueError("All elements in the list must be integers.")
+            bst.insert(element)
+
+        return bst
