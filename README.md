@@ -11,14 +11,31 @@
     - Duplicate keys are not allowed.
 
     **Methods**
-    - **`insert(root, key)`**:
-        - This method inserts a specified key into a Binary Search Tree (BST) by recursively finding the correct position while maintaining BST properties, creating a new root node if the tree is empty, inserting into the left subtree if the key is smaller, or the right subtree if larger.
-    - **`search(root, key)`**:
-        - This method checks whether a specified key exists in the Binary Search Tree (BST). It starts from the root and traverses the tree based on the key’s value, returning True if the key is found and False otherwise. This method is called directly on the BinarySearchTree instance, providing an easy way to verify the presence of a value in the tree.
-    - **`delete(root, key)`**:
-        - This method deletes a specified key from a Binary Search Tree (BST). If the key is found, it removes the node while maintaining BST properties. For nodes with two children, it replaces the node with its in-order successor (smallest value in the right subtree) and then deletes the successor node. If the node has one child or no children, it is removed, and its child (if any) takes its place.
+    - **`insert(key)`**:
+        - Inserts a specified key into the Binary Search Tree (BST) while maintaining BST properties.
+        - If the tree is empty, it creates a new root node.
+        - If the key is smaller than the current node’s key, it is inserted into the left subtree; if larger, into the right subtree.
+        - Duplicate keys are ignored.
+
+    - **`search(key, algorithm='dfs')`**:
+        - Searches for a specified key in the BST.
+        - Supports two search algorithms:
+          - **Depth-First Search (DFS) (default):** Explores as deep as possible before backtracking.
+          - **Breadth-First Search (BFS):** Searches level by level, ensuring the shortest path to a node is checked first.
+        - Returns the node containing the key if found, otherwise `None`.
+
+    - **`delete(key)`**:
+        - Deletes a specified key from the BST while maintaining BST properties.
+        - If the node has:
+          - **No children** → It is removed.
+          - **One child** → The child replaces the deleted node.
+          - **Two children** → The node is replaced by its in-order successor (the smallest value in the right subtree), and the successor is then deleted.
+
     - **`list_to_tree(elements)`**:
-        - This static method constructs a Binary Search Tree (BST) from a given list of elements. It sequentially inserts each element into the BST, ensuring the tree maintains its BST properties. The method is accessed directly via the BinarySearchTree class and returns a BinarySearchTree object with the provided elements organized in a valid BST structure.
+        - Constructs a Binary Search Tree (BST) from a given list of elements.
+        - Sequentially inserts each element into the BST, ensuring the tree maintains BST properties.
+        - **Duplicate values are ignored** to preserve the BST structure.
+        - Returns a `BinarySearchTree` object with the provided elements organized as a valid BST.
 
 ## datastructpy in Python Ecosystem
 `datastructpy` complements Python’s standard library by providing customizable implementations of essential data structures for learning and interview preparation. While modules like collections (e.g., deque) and heapq focus on optimized, ready-to-use structures, datastructpy emphasizes clarity and adaptability, making it ideal for understanding core concepts. Unlike specialized libraries like [pyrsistent](https://pypi.org/project/pyrsistent/) or [sortedcontainers](https://pypi.org/project/sortedcontainers/), `datastructpy` bridges the gap between practical functionality and educational needs, carving out a unique space in the Python ecosystem.
@@ -34,7 +51,7 @@ $ pip install datastructpy
 ### Example usage:
 
 ```python
-from datastructpy.binary_search_tree import BinarySearchTree
+from datastructpy.non_linear.trees.binary_search_tree import BinarySearchTree
 
 # Create a Binary Search Tree from a list of elements
 elements = [10, 5, 15, 8]
@@ -51,13 +68,13 @@ print(bst.root.left.right.key)  # Output: 8
 print("Inserting New Elements:")
 bst.insert(12)  # Insert into right subtree of 10
 bst.insert(2)   # Insert into left subtree of 5
-print(bst.root.right.left.key)  # Output: 12 (right subtree of 10, left child of 15)
+print(bst.root.right.left.key)  # Output: 12 (left child of 15)
 print(bst.root.left.left.key)   # Output: 2 (left child of 5)
 
 # Search for values in the BST
 print("Searching for Keys:")
-print(bst.search(8))   # Output: True (8 exists in the tree)
-print(bst.search(20))  # Output: False (20 does not exist in the tree)
+print(bst.search(8) is not None)   # Output: True (8 exists in the tree)
+print(bst.search(20) is None)      # Output: True (20 does not exist in the tree)
 
 # Delete a node
 print("Deleting Nodes:")
@@ -65,7 +82,7 @@ bst.delete(5)  # Delete the left child of the root
 if bst.root.left:
     print(bst.root.left.key)    # Output: 8 (5 replaced by its in-order successor)
 else:
-    print(bst.root.left)        # Output: None (if successor is not present)
+    print(bst.root.left)        # Output: None (if no successor is present)
 
 bst.delete(10)  # Delete the root
 print(bst.root.key)             # Output: 15 (new root after deletion)
