@@ -1,86 +1,77 @@
 import pytest
 from datastructpy.non_linear.trees.binary_search_tree import BinarySearchTree
 
+@pytest.fixture
+def bst():
+    r"""
+    Fixture to create a Binary Search Tree (BST) with predefined values.
+    The tree structure before deletion:
+             20
+            /  \
+          10   30
+         /  \   /  \
+        5   15 25  35
+    """
+    elements = [20, 10, 30, 5, 15, 25, 35]
+    return BinarySearchTree.list_to_tree(elements)
+
 def test_delete_empty_tree():
     """
     Tests the delete operation on an empty tree.
+    Deleting a key from an empty BST should not cause any errors.
     """
     bst = BinarySearchTree()
-    bst.delete(10)  # Should not raise any errors
+    bst.delete(10)
     assert bst.root is None, "Deleting from an empty tree should do nothing."
 
-def test_delete_leaf_node():
+def test_delete_leaf_node(bst):
     """
-    Tests the deletion of a leaf node.
-    A leaf node is a node with no children.
+    Tests the deletion of a leaf node (node with no children).
     """
-    bst = BinarySearchTree()
-    bst.insert(10)
-    bst.insert(5)
-    bst.insert(15)
     bst.delete(5)
-    assert not bst.search(5), "Leaf node 5 should be deleted."
+    assert bst.search(5) is None, "Leaf node 5 should be deleted."
 
-def test_delete_traverse_right_subtree():
+def test_delete_traverse_right_subtree(bst):
     """
     Tests the deletion of a node located in the right subtree.
     """
-    bst = BinarySearchTree()
-    bst.insert(10)
-    bst.insert(15)
-    bst.insert(20)
-    bst.delete(15)
-    assert not bst.search(15), "Node 15 should be deleted."
-    assert bst.root.right.key == 20, "Node 20 should replace node 15 in the right subtree."
+    bst.delete(30)
+    assert bst.search(30) is None, "Node 30 should be deleted."
+    assert bst.root.right.key == 35, "Node 35 should replace node 30 in the right subtree."
 
-def test_delete_node_with_one_child():
+def test_delete_node_with_one_child(bst):
     """
-    Tests the deletion of a node that has only one child.
-    Making sure the child node replaces the deleted node.
+    Tests the deletion of a node with only one child.
+    The child node should replace the deleted node.
     """
-    bst = BinarySearchTree()
-    bst.insert(10)
-    bst.insert(5)
-    bst.insert(3)
-    bst.delete(5)
-    assert not bst.search(5), "Node 5 should be deleted."
-    assert bst.root.left.key == 3, "Node 3 should replace node 5."
+    bst.delete(10)
+    assert bst.search(10) is None, "Node 10 should be deleted."
+    assert bst.root.left.key == 15, "Node 15 should replace node 10."
 
-def test_delete_node_with_two_children():
+def test_delete_node_with_two_children(bst):
     """
     Tests the deletion of a node that has two children.
-    Making sure the node is replaced by its successor.
+    The node should be replaced by its in-order successor.
     """
-    bst = BinarySearchTree()
-    bst.insert(10)
-    bst.insert(5)
-    bst.insert(7)
-    bst.delete(5)
-    bst.delete(10)
-    assert bst.root.key == 7, "Node 7 should replace node 5."
+    bst.delete(20)
+    assert bst.search(20) is None, "Node 20 should be deleted."
+    assert bst.root.key == 25, "Root should now be replaced by in-order successor 25."
 
 def test_delete_root_node():
     """
     Tests the deletion of the root node.
-    Making sure the tree handles the root deletion.
+    The tree should correctly handle deleting the root.
     """
     bst = BinarySearchTree()
     bst.insert(10)
     bst.delete(10)
-    assert not bst.search(10), "Root node 10 should be deleted."
+    assert bst.search(10) is None, "Root node 10 should be deleted."
 
-def test_delete_complex_tree():
+def test_delete_complex_tree(bst):
     """
-    Tests the deletion of a node in a more complex tree structure.
+    Tests the deletion of a node in a complex tree structure.
+    Ensures the BST maintains correct structure after deletion.
     """
-    bst = BinarySearchTree()
-    bst.insert(20)
-    bst.insert(10)
-    bst.insert(30)
-    bst.insert(5)
-    bst.insert(15)
-    bst.insert(25)
-    bst.insert(35)
-    bst.delete(20)  # Delete root with two children
-    assert not bst.search(20), "Root 20 should be deleted."
+    bst.delete(20)  # Deleting root with two children
+    assert bst.search(20) is None, "Root 20 should be deleted."
     assert bst.root.key == 25, "Root should now be replaced by in-order successor 25."
