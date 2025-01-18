@@ -22,13 +22,17 @@ def test_insert_right_child():
     bst.insert(15)
     assert bst.root.right.key == 15, "The right child key should be 15."
 
-def test_insert_duplicate():
-    """Test inserting a duplicate value; the tree should not change."""
+def test_insert_duplicate_break():
+    """Test that inserting a duplicate key hits the break logic."""
     bst = BinarySearchTree()
-    bst.insert(10)
-    bst.insert(10)  # Insert duplicate
-    assert bst.root.left is None, "The duplicate value should not create a new node."
-    assert bst.root.right is None, "The duplicate value should not create a new node."
+    bst.insert(10)  # Insert the root
+    bst.insert(5)   # Insert a left child
+    bst.insert(10)  # Insert duplicate value (should trigger the break statement)
+    bst.insert(5)   # Insert duplicate left child value (should trigger the break statement)
+    # Assert tree structure remains correct
+    assert bst.root.key == 10, "The root key should remain 10."
+    assert bst.root.left.key == 5, "The left child should remain 5."
+    assert bst.root.right is None, "There should be no right child."
 
 def test_insert_multiple_levels():
     """Test inserting values to form a deeper tree structure."""
