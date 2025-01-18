@@ -1,3 +1,6 @@
+from datastructpy.node import Node
+from datastructpy.non_linear.trees.breadth_first_search import breadth_first_search
+from datastructpy.non_linear.trees.depth_first_search import depth_first_search
 class BinarySearchTree:
     """
     A class representing a binary search tree (BST).
@@ -50,26 +53,57 @@ class BinarySearchTree:
         print(bst.root.left.key)  # Output: 5
         print(bst.root.right.key) # Output: 15
         """
-    
-    def search(self, key):
-        """
-        Checks if a value exists in the Binary Search Tree (BST).
+        if self.root is None:
+            self.root = Node(key)
+        else:
+            current = self.root
+            while True:
+                if key < current.key:
+                    # Go to the left subtree
+                    if current.left is None:
+                        current.left = Node(key)
+                        break
+                    else:
+                        current = current.left
+                elif key > current.key:
+                    # Go to the right subtree
+                    if current.right is None:
+                        current.right = Node(key)
+                        break
+                    else:
+                        current = current.right
+                else:
+                    # The key is already in the BST (no duplicates allowed)
+                    break
 
-        This method traverses the BST to determine if a node with the specified key exists.
-        It starts from the root and:
-        - Returns True if a node with the given key is found.
-        - Returns False if the key is not present in the tree.
+    def search(self, key, algorithm='dfs'):
+        """
+        Searches for a key in the Binary Search Tree (BST) using the specified algorithm.
+
+        This method allows searching for a key in the BST using either 
+        depth-first search (DFS) or breadth-first search (BFS).
+
+        - DFS (default)**: Searches by exploring as deep as possible before backtracking.
+        - BFS: Searches level by level, ensuring the shortest path to a node is checked first.
 
         Parameters
         ----------
         key : int
             The value to search for in the tree.
+        algorithm : str, optional
+            The search algorithm to use ('dfs' for Depth-First Search or 'bfs' for Breadth-First Search).
+            Defaults to 'dfs'.
 
         Returns
         -------
-        bool
-            - True if a node with the specified key exists in the tree.
-            - False if the key does not exist or the tree is empty.
+        Node or None
+            - The Node object containing the specified key if found.
+            - None if the key does not exist or the tree is empty.
+
+        Raises
+        ------
+        ValueError
+            If an invalid algorithm is provided.
 
         Examples
         --------
@@ -80,9 +114,18 @@ class BinarySearchTree:
         bst.insert(15)
 
         # Searching for values in the tree
-        print(bst.search(5))  # Output: True (5 exists in the tree)
-        print(bst.search(20)) # Output: False (20 does not exist in the tree)
+        result = bst.search(5)
+        if result:
+            print(result.key)  # Output: 5
+
+        print(bst.search(20)) # Output: None (20 does not exist in the tree)
         """
+        if algorithm == 'bfs':
+            return breadth_first_search(self.root, key)
+        elif algorithm == 'dfs':
+            return depth_first_search(self.root, key)
+        else:
+            raise ValueError(f"Invalid search algorithm: {algorithm}. Use 'dfs' or 'bfs'.")
 
     def delete(self, key):
         """Delete a value from the BST.
@@ -111,6 +154,45 @@ class BinarySearchTree:
         bst.delete(5)  # Delete a leaf node
         print(bst.root.left)  # Output: None
         """
+        def _delete(node, key):
+            # Base case
+            if node is None:
+                return None
+            
+            # Check if key that wants to be deleted is smaller than current's,
+            # Go to the left subtree
+            if key < node.key:
+                node.left = _delete(node.left, key)
+            # Check if key that wants to be deleted is larger than current's,
+            # Go to the right subtree
+            elif key > node.key:
+                node.right = _delete(node.right, key)
+            # Key is found
+            else:
+
+                # Check if we have one or no child
+                if node.left is None:
+                    return node.right
+                elif node.right is None:
+                    return node.left
+                
+                # If we have 2 children
+                # Find the smallest one in the right subtree to replace the current node
+                min_larger_node = node.right
+                while min_larger_node.left is not None:
+                    min_larger_node = min_larger_node.left
+    
+                # Replace current node with the smallest node's key
+                node.key = min_larger_node.key
+
+                # Delete the right node that contained the smallest key from the right subtree
+                node.right = _delete(node.right, min_larger_node.key)
+
+            # Return the updated node
+            return node
+            
+        # To make sure the deletion process starts from the root
+        self.root = _delete(self.root, key)
     
     @staticmethod
     def list_to_tree(elements):
