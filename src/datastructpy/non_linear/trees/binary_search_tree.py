@@ -70,26 +70,6 @@ class BinarySearchTree:
                     return
                 current = current.right
         """
-
-        if self.root is None:
-            self.root = Node(key)
-            return
-
-        current = self.root
-        while True:
-            if key < current.key:
-                if current.left is None:
-                    current.left = Node(key)
-                    return
-                current = current.left
-            else:
-                if current.right is None:
-                    current.right = Node(key)
-                    return
-                current = current.right
-
-
-
     def search(self, key, algorithm='dfs'):
         """
         Searches for a key in the Binary Search Tree (BST) using the specified algorithm.
