@@ -53,6 +53,11 @@ class BinarySearchTree:
         print(bst.root.left.key)  # Output: 5
         print(bst.root.right.key) # Output: 15
         """
+        if key is None:
+            raise TypeError("None values are not allowed in the BST.")
+        if not isinstance(key, int):
+            raise TypeError("Only integers are allowed in the BST.")
+        
         if self.root is None:
             self.root = Node(key)
         else:
