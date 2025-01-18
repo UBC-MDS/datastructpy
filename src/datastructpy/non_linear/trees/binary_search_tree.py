@@ -1,3 +1,7 @@
+from datastructpy.node import Node
+from datastructpy.non_linear.trees.breadth_first_search import breadth_first_search
+from datastructpy.non_linear.trees.depth_first_search import depth_first_search
+
 class BinarySearchTree:
     """
     A class representing a binary search tree (BST).
@@ -51,25 +55,34 @@ class BinarySearchTree:
         print(bst.root.right.key) # Output: 15
         """
     
-    def search(self, key):
+    def search(self, key, algorithm='dfs'):
         """
-        Checks if a value exists in the Binary Search Tree (BST).
+        Searches for a key in the Binary Search Tree (BST) using the specified algorithm.
 
-        This method traverses the BST to determine if a node with the specified key exists.
-        It starts from the root and:
-        - Returns True if a node with the given key is found.
-        - Returns False if the key is not present in the tree.
+        This method allows searching for a key in the BST using either 
+        depth-first search (DFS) or breadth-first search (BFS).
+
+        - DFS (default)**: Searches by exploring as deep as possible before backtracking.
+        - BFS: Searches level by level, ensuring the shortest path to a node is checked first.
 
         Parameters
         ----------
         key : int
             The value to search for in the tree.
+        algorithm : str, optional
+            The search algorithm to use ('dfs' for Depth-First Search or 'bfs' for Breadth-First Search).
+            Defaults to 'dfs'.
 
         Returns
         -------
-        bool
-            - True if a node with the specified key exists in the tree.
-            - False if the key does not exist or the tree is empty.
+        Node or None
+            - The Node object containing the specified key if found.
+            - None if the key does not exist or the tree is empty.
+
+        Raises
+        ------
+        ValueError
+            If an invalid algorithm is provided.
 
         Examples
         --------
@@ -80,9 +93,18 @@ class BinarySearchTree:
         bst.insert(15)
 
         # Searching for values in the tree
-        print(bst.search(5))  # Output: True (5 exists in the tree)
-        print(bst.search(20)) # Output: False (20 does not exist in the tree)
+        result = bst.search(5)
+        if result:
+            print(result.key)  # Output: 5
+
+        print(bst.search(20)) # Output: None (20 does not exist in the tree)
         """
+        if algorithm == 'bfs':
+            return breadth_first_search(self.root, key)
+        elif algorithm == 'dfs':
+            return depth_first_search(self.root, key)
+        else:
+            raise ValueError(f"Invalid search algorithm: {algorithm}. Use 'dfs' or 'bfs'.")
 
     def delete(self, key):
         """Delete a value from the BST.
