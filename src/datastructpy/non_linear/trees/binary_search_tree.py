@@ -53,23 +53,35 @@ class BinarySearchTree:
         bst.insert(12)  # Insert a node in the right subtree
         print(bst.root.left.key)  # Output: 5
         print(bst.root.right.key) # Output: 15
-            if self.root is None:
-            self.root = Node(key)
-            return
-
-        current = self.root
-        while True:
-            if key < current.key:
-                if current.left is None:
-                    current.left = Node(key)
-                    return
-                current = current.left
-            else:
-                if current.right is None:
-                    current.right = Node(key)
-                    return
-                current = current.right
         """
+        if key is None:
+            raise TypeError("None values are not allowed in the BST.")
+        if not isinstance(key, int):
+            raise TypeError("Only integers are allowed in the BST.")
+            
+        if self.root is None:
+            self.root = Node(key)
+        else:
+            current = self.root
+            while True:
+                if key < current.key:
+                    # Go to the left subtree
+                    if current.left is None:
+                        current.left = Node(key)
+                        break
+                    else:
+                        current = current.left
+                elif key > current.key:
+                    # Go to the right subtree
+                    if current.right is None:
+                        current.right = Node(key)
+                        break
+                    else:
+                        current = current.right
+                else:
+                    # The key is already in the BST (no duplicates allowed)
+                    break
+                    
     def search(self, key, algorithm='dfs'):
         """
         Searches for a key in the Binary Search Tree (BST) using the specified algorithm.
@@ -148,6 +160,45 @@ class BinarySearchTree:
         bst.delete(5)  # Delete a leaf node
         print(bst.root.left)  # Output: None
         """
+        def _delete(node, key):
+            # Base case
+            if node is None:
+                return None
+            
+            # Check if key that wants to be deleted is smaller than current's,
+            # Go to the left subtree
+            if key < node.key:
+                node.left = _delete(node.left, key)
+            # Check if key that wants to be deleted is larger than current's,
+            # Go to the right subtree
+            elif key > node.key:
+                node.right = _delete(node.right, key)
+            # Key is found
+            else:
+
+                # Check if we have one or no child
+                if node.left is None:
+                    return node.right
+                elif node.right is None:
+                    return node.left
+                
+                # If we have 2 children
+                # Find the smallest one in the right subtree to replace the current node
+                min_larger_node = node.right
+                while min_larger_node.left is not None:
+                    min_larger_node = min_larger_node.left
+    
+                # Replace current node with the smallest node's key
+                node.key = min_larger_node.key
+
+                # Delete the right node that contained the smallest key from the right subtree
+                node.right = _delete(node.right, min_larger_node.key)
+
+            # Return the updated node
+            return node
+            
+        # To make sure the deletion process starts from the root
+        self.root = _delete(self.root, key)
     
     @staticmethod
     def list_to_tree(elements):
