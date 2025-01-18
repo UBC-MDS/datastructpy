@@ -1,6 +1,7 @@
 from datastructpy.node import Node
 from datastructpy.non_linear.trees.breadth_first_search import breadth_first_search
 from datastructpy.non_linear.trees.depth_first_search import depth_first_search
+
 class BinarySearchTree:
     """
     A class representing a binary search tree (BST).
