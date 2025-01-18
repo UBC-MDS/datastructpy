@@ -233,3 +233,13 @@ class BinarySearchTree:
         print(bst.root.left.key)  # Output: 5 (left child of root)
         print(bst.root.right.key) # Output: 15 (right child of root)
         """
+        if not isinstance(elements, list):
+            raise ValueError("Input must be a list of integers.")
+
+        bst = BinarySearchTree()
+        for element in elements:
+            if not isinstance(element, int):
+                raise ValueError("All elements in the list must be integers.")
+            bst.insert(element)
+
+        return bst
