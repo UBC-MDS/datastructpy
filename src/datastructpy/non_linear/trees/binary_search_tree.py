@@ -81,31 +81,20 @@ class BinarySearchTree:
                 else:
                     break  # Duplicate keys are ignored
 
-    def search(self, key, algorithm='dfs'):
+    def search(self, key):
         """
-        Searches for a key in the Binary Search Tree (BST) using the specified algorithm.
-
-        - DFS (default): Explores the deepest nodes before backtracking.
-        - BFS: Searches level by level, ensuring the shortest path is checked first.
+        Searches for a key in the Binary Search Tree (BST).
 
         Parameters
         ----------
         key : int
             The value to search for in the BST.
-        algorithm : str, optional
-            The search algorithm to use ('dfs' for Depth-First Search or 'bfs' for Breadth-First Search).
-            Defaults to 'dfs'.
 
         Returns
         -------
         Node or None
             - The Node object containing the specified key if found.
             - None if the key does not exist or the tree is empty.
-
-        Raises
-        ------
-        ValueError
-            If an invalid algorithm is provided.
 
         Examples
         --------
@@ -118,12 +107,15 @@ class BinarySearchTree:
         >>> bst.search(20) is None
         True
         """
-        if algorithm == 'bfs':
-            return breadth_first_search(self.root, key)
-        elif algorithm == 'dfs':
-            return depth_first_search(self.root, key)
-        else:
-            raise ValueError(f"Invalid search algorithm: {algorithm}. Use 'dfs' or 'bfs'.")
+        current = self.root
+        while current is not None:
+            if key == current.key:
+                return current
+            elif key < current.key:
+                current = current.left
+            else:
+                current = current.right
+        return None
 
     def delete(self, key):
         """

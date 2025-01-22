@@ -17,11 +17,12 @@
         - If the key is smaller than the current node’s key, it is inserted into the left subtree; if larger, into the right subtree.
         - Duplicate keys are ignored.
 
-    - **`search(key, algorithm='dfs')`**:
+    - **`search(key)`**:
         - Searches for a specified key in the BST.
-        - Supports two search algorithms:
-          - **Depth-First Search (DFS) (default):** Explores as deep as possible before backtracking.
-          - **Breadth-First Search (BFS):** Searches level by level, ensuring the shortest path to a node is checked first.
+        - The search follows the **Binary Search Tree (BST) property**:
+        - If the key is smaller than the current node, search the left subtree.
+        - If the key is larger, search the right subtree.
+        - If the key matches, return the node.
         - Returns the node containing the key if found, otherwise `None`.
 
     - **`delete(key)`**:
