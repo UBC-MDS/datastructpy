@@ -2,6 +2,8 @@
 
 [![Documentation Status](https://readthedocs.org/projects/datastructpy/badge/?version=latest)](https://datastructpy.readthedocs.io/en/latest/?badge=latest)
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-360/)
+[![codecov](https://codecov.io/gh/UBC-MDS/datastructpy/graph/badge.svg?token=BzhF7l45if)](https://codecov.io/gh/UBC-MDS/datastructpy)
+
 
 
 `datastructpy` is a Python package designed to provide customizable and practical implementations of essential data structures, such as Binary Search Trees (BST). It is tailored to help users prepare for technical interviews, coding challenges, and educational projects by offering intuitive and efficient solutions. The package stands out by emphasizing simplicity and clarity while maintaining detailed documentation and modular implementations suited for both learning and practical use. Unlike visualization-heavy libraries, the package focuses on providing a hands-on, customizable experience for working with binary trees and other data structures. If you require a structured, minimalistic approach without additional dependencies or overhead, `datastructpy` serves as a valuable alternative!
