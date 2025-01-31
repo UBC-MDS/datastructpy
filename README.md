@@ -97,6 +97,44 @@ print(bst.root.left.key)        # Output: 8
 print(bst.root.right.left.key)  # Output: 12
 ```
 
+## Running Tests
+
+To run tests for the `datastructpy` package, follow these steps:
+
+
+1. **Ensure dependencies are installed**:
+    If you haven't set up the environment yet, install dependencies using Poetry:
+
+    ```bash
+    $ poetry install
+    ```
+
+2. **Run tests using pytest**:
+    Execute the following command from the root of the project directory:
+
+    ```bash
+    $ poetry run pytest
+    ```
+
+    This will automatically discover and execute all test files in the `tests/` directory.
+
+3. **Run a specific test file**:
+    To test a specific module, specify the file path:
+
+    ```bash
+    $ poetry run pytest tests/non-linear/trees/binary_search_tree/test_list_to_tree.py
+    ```
+
+4. **Run tests with coverage** (optional):
+    To measure test coverage, use:
+
+    ```bash
+    $ poetry run pytest --cov=src/datastructpy
+    ```
+
+For more advanced testing options and configurations, refer to the [pytest documentation](https://docs.pytest.org/en/stable/).
+
+
 ## Contributing
 
 Interested in contributing? Check out the [contributing](https://github.com/UBC-MDS/datastructpy/blob/main/CONTRIBUTING.md) guidelines. Please note that this project is released with a [Code of Conduct](https://github.com/UBC-MDS/datastructpy/blob/main/CONDUCT.md). By contributing to this project, you agree to abide by its terms.
