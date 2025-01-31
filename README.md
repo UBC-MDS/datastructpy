@@ -1,6 +1,8 @@
 # datastructpy
 
-[![Documentation Status](https://readthedocs.org/projects/datastructpy/badge/?version=latest)](https://datastructpy.readthedocs.io/en/latest/?badge=latest)[![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-360/)
+[![Documentation Status](https://readthedocs.org/projects/datastructpy/badge/?version=latest)](https://datastructpy.readthedocs.io/en/latest/?badge=latest)
+[![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-360/)
+
 
 `datastructpy` is a Python package designed to provide customizable and practical implementations of essential data structures, such as Binary Search Trees (BST). It is tailored to help users prepare for technical interviews, coding challenges, and educational projects by offering intuitive and efficient solutions. The package stands out by emphasizing simplicity and clarity while maintaining detailed documentation and modular implementations suited for both learning and practical use. Unlike visualization-heavy libraries, the package focuses on providing a hands-on, customizable experience for working with binary trees and other data structures. If you require a structured, minimalistic approach without additional dependencies or overhead, `datastructpy` serves as a valuable alternative!
 
@@ -96,6 +98,44 @@ print(bst.root.key)             # Output: 15
 print(bst.root.left.key)        # Output: 8
 print(bst.root.right.left.key)  # Output: 12
 ```
+
+## Running Tests
+
+To run tests for the `datastructpy` package, follow these steps:
+
+
+1. **Ensure dependencies are installed**:
+    If you haven't set up the environment yet, install dependencies using Poetry:
+
+    ```bash
+    $ poetry install
+    ```
+
+2. **Run tests using pytest**:
+    Execute the following command from the root of the project directory:
+
+    ```bash
+    $ poetry run pytest
+    ```
+
+    This will automatically discover and execute all test files in the `tests/` directory.
+
+3. **Run a specific test file**:
+    To test a specific module, specify the file path:
+
+    ```bash
+    $ poetry run pytest tests/non-linear/trees/binary_search_tree/test_list_to_tree.py
+    ```
+
+4. **Run tests with coverage** (optional):
+    To measure test coverage, use:
+
+    ```bash
+    $ poetry run pytest --cov=src/datastructpy
+    ```
+
+For more advanced testing options and configurations, refer to the [pytest documentation](https://docs.pytest.org/en/stable/).
+
 
 ## Contributing
 
