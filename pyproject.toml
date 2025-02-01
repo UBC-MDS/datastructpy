@@ -2,7 +2,7 @@
 name = "datastructpy"
 version = "0.1.0"
 description = "Data Structures for Python"
-authors = ["group9_ubc_mds_2025"]
+authors = ["Albert Halim", "Azin Piran", "Javier Martinez", "Jessica Kuo"]
 license = "MIT"
 readme = "README.md"
 
