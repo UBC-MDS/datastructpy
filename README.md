@@ -47,7 +47,11 @@
 ## datastructpy in Python Ecosystem
 `datastructpy` complements Python’s standard library by providing customizable implementations of essential data structures for learning and interview preparation. While modules like collections (e.g., deque) and heapq focus on optimized, ready-to-use structures, datastructpy emphasizes clarity and adaptability, making it ideal for understanding core concepts. Unlike specialized libraries like [pyrsistent](https://pypi.org/project/pyrsistent/) or [sortedcontainers](https://pypi.org/project/sortedcontainers/), `datastructpy` bridges the gap between practical functionality and educational needs, carving out a unique space in the Python ecosystem.
 
-## Installation
+## 🚀 Installation
+
+You can install **datastructpy** using `pip`.
+
+### Install via pip:
 
 ```bash
 $ pip install datastructpy
@@ -138,6 +142,9 @@ To run tests for the `datastructpy` package, follow these steps:
 
 For more advanced testing options and configurations, refer to the [pytest documentation](https://docs.pytest.org/en/stable/).
 
+## Contributors
+
+Albert Halim [@Albert0011](https://github.com/Albert0011), Azin Piran [@AzinPiran](https://github.com/AzinPiran), Javier Martinez [@javiermtzo99](https://github.com/javiermtzo99), Jessica Kuo [@kuo4230](https://github.com/kuo4230)
 
 ## Contributing
 
@@ -145,12 +152,8 @@ Interested in contributing? Check out the [contributing](https://github.com/UBC-
 
 ## License
 
-`datastructpy` was created by Albert Halim, Azin Piran, Javier Martinez, Jessica Kuo. It is licensed under the terms of the MIT license.
+`datastructpy` was created by Albert Halim, Azin Piran, Javier Martinez, Jessica Kuo. It is licensed under the terms of the [MIT license](https://github.com/UBC-MDS/datastructpy?tab=MIT-1-ov-file).
 
 ## Credits
 
 `datastructpy` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
-
-## Contributors
-
-Albert Halim, Azin Piran, Javier Martinez, Jessica Kuo
