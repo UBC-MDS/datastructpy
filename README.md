@@ -144,10 +144,7 @@ For more advanced testing options and configurations, refer to the [pytest docum
 
 ## Contributors
 
--   Albert Halim [Albert0011](https://github.com/Albert0011)
--   Azin Piran [AzinPiran](https://github.com/AzinPiran)
--   Javier Martinez [javiermtzo99](https://github.com/javiermtzo99)
--   Jessica Kuo [kuo4230](https://github.com/kuo4230)
+Albert Halim [@Albert0011](https://github.com/Albert0011), Azin Piran [@AzinPiran](https://github.com/AzinPiran), Javier Martinez [@javiermtzo99](https://github.com/javiermtzo99), Jessica Kuo [@kuo4230](https://github.com/kuo4230)
 
 ## Contributing
 
