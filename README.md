@@ -145,7 +145,7 @@ Interested in contributing? Check out the [contributing](https://github.com/UBC-
 
 ## License
 
-`datastructpy` was created by Albert Halim, Azin Piran, Javier Martinez, Jessica Kuo. It is licensed under the terms of the MIT license.
+`datastructpy` was created by @Albert0011, @AzinPiran, @javiermtzo99, @kuo4230. It is licensed under the terms of the MIT license.
 
 ## Credits
 
@@ -153,4 +153,4 @@ Interested in contributing? Check out the [contributing](https://github.com/UBC-
 
 ## Contributors
 
-Albert Halim, Azin Piran, Javier Martinez, Jessica Kuo
+Albert Halim @Albert0011, Azin Piran @AzinPiran, Javier Martinez @javiermtzo99, Jessica Kuo @kuo4230
