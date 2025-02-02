@@ -43,9 +43,14 @@ def test_search_empty_tree():
     empty_bst = BinarySearchTree()
     assert empty_bst.search(10) is None  # Should return None
 
-def test_search_invalid_algorithm(bst):
+def test_search_invalid_key():
     """
-    Tests if search() handles invalid algorithm names properly.
+    Tests if search() raises TypeError for invalid key types.
     """
-    with pytest.raises(TypeError):  # Since 'algorithm' is removed, this should raise a TypeError
-        bst.search(10, algorithm='invalid_algorithm')
+    bst = BinarySearchTree.list_to_tree([10, 5, 15])
+    with pytest.raises(TypeError):
+        bst.search(None)
+    with pytest.raises(TypeError):
+        bst.search("string")
+    with pytest.raises(TypeError):
+        bst.search(10.5)

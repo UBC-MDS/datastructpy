@@ -94,6 +94,11 @@ class BinarySearchTree:
             - The Node object containing the specified key if found.
             - None if the key does not exist or the tree is empty.
 
+        Raises
+        ------
+        TypeError
+            If the key is not an integer or is None.
+
         Examples
         --------
         >>> bst = BinarySearchTree()
@@ -105,6 +110,11 @@ class BinarySearchTree:
         >>> bst.search(20) is None
         True
         """
+        if key is None:
+            raise TypeError("None values are not allowed in the BST.")
+        if not isinstance(key, int):
+            raise TypeError("Only integers are allowed in the BST.")
+
         current = self.root
         while current is not None:
             if key == current.key:
@@ -128,6 +138,17 @@ class BinarySearchTree:
         key : int
             The value to delete from the BST.
 
+        Returns
+        -------
+        bool
+            - True if the key was found and deleted.
+            - False if the key was not found.
+
+        Raises
+        ------
+        TypeError
+            If the key is not an integer or is None.
+
         Examples
         --------
         >>> bst = BinarySearchTree()
@@ -135,12 +156,16 @@ class BinarySearchTree:
         >>> bst.insert(5)
         >>> bst.insert(15)
         >>> bst.delete(10)
-        >>> bst.root.key
-        15
+        True
+        >>> bst.delete(20)
+        False
         """
+        if key is None:
+            raise TypeError("None values are not allowed in the BST.")
+        if not isinstance(key, int):
+            raise TypeError("Only integers are allowed in the BST.")
+
         def _delete(node, key):
-            if node is None:
-                return None
             if key < node.key:
                 node.left = _delete(node.left, key)
             elif key > node.key:
@@ -157,7 +182,10 @@ class BinarySearchTree:
                 node.right = _delete(node.right, min_larger_node.key)
             return node
 
+        if self.search(key) is None:
+            return False
         self.root = _delete(self.root, key)
+        return True
 
     @staticmethod
     def list_to_tree(elements):
