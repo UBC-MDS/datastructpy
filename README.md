@@ -16,6 +16,15 @@
     - Keys in the right subtree of a node are larger than the node’s key.
     - Duplicate keys are not allowed.
 
+    Time Complexity:
+    Search, Insert, Delete:
+    - Average Case: O(log n) => This occurs when the BST is balanced.
+    - Worst Case: O(n) => This occurs when the BST is skewed.
+
+    Space Complexity:
+    - Space for the BST: O(n).
+    - Recursive Operations: O(h), where h is the height of the tree.
+
     **Methods**
     - **`insert(key)`**:
         - Inserts a specified key into the Binary Search Tree (BST) while maintaining BST properties.
