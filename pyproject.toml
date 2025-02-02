@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "datastructpy"
-version = "0.1.0"
+version = "0.0.0"
 description = "Data Structures for Python"
 authors = ["Albert Halim", "Azin Piran", "Javier Martinez", "Jessica Kuo"]
 license = "MIT"
