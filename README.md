@@ -68,50 +68,120 @@ $ pip install datastructpy
 
 ## Usage
 
-### Example usage:
+### Example Usage
 
 ```python
-from datastructpy.non_linear.trees.binary_search_tree import BinarySearchTree
+from datastructpy import BinarySearchTree
 
-# Create a Binary Search Tree from a list of elements
-elements = [10, 5, 15, 8]
-bst = BinarySearchTree.list_to_tree(elements)
+# Build a BST from a list of values.
+bst = BinarySearchTree.list_to_tree([10, 5, 15, 8])
 
-# Check the structure of the tree
-print("Tree Structure After Creation:")
-print(bst.root.key)             # Output: 10
-print(bst.root.left.key)        # Output: 5
-print(bst.root.right.key)       # Output: 15
-print(bst.root.left.right.key)  # Output: 8
+# After creation, the tree looks like:
+#
+#         10
+#        /  \
+#       5    15
+#        \
+#         8
+#
+print("Initial Tree:")
+print("  Root:", bst.root.key)
+print("  Left Child:", bst.root.left.key)
+print("  Right Child:", bst.root.right.key)
+print("  Right of Left Child:", bst.root.left.right.key)
+```
+```text
+Initial Tree:
+  Root: 10
+  Left Child: 5
+  Right Child: 15
+  Right of Left Child: 8
+```
+```python
+# Insert new elements.
+bst.insert(12)  # Inserts into left subtree of 15.
+bst.insert(2)   # Inserts into left subtree of 5.
 
-# Insert new nodes into the BST
-print("Inserting New Elements:")
-bst.insert(12)  # Insert into right subtree of 10
-bst.insert(2)   # Insert into left subtree of 5
-print(bst.root.right.left.key)  # Output: 12 (left child of 15)
-print(bst.root.left.left.key)   # Output: 2 (left child of 5)
-
-# Search for values in the BST
-print("Searching for Keys:")
-print(bst.search(8) is not None)   # Output: True (8 exists in the tree)
-print(bst.search(20) is None)      # Output: True (20 does not exist in the tree)
-
-# Delete a node
-print("Deleting Nodes:")
-bst.delete(5)  # Delete the left child of the root
+# Now the tree is updated to:
+#
+#         10
+#        /  \
+#       5    15
+#      / \   /
+#     2   8 12
+#
+print("\nAfter Insertion:")
+print("  New left of 5:", bst.root.left.left.key)
+print("  New left of 15:", bst.root.right.left.key)
+```
+```text
+After Insertion:
+  New left of 5: 2
+  New left of 15: 12
+```
+```python
+# Search for keys.
+print("\nSearch Results:")
+print("  8 found:", bst.search(8) is not None)
+print("  20 found:", bst.search(20) is not None)
+```
+```text
+Search Results:
+  8 found: True
+  20 found: False
+```
+```python
+# Delete node with key 5.
+# The in-order successor of 5 (which is 8) replaces it.
+bst.delete(5)
+print("\nAfter Deleting 5:")
 if bst.root.left:
-    print(bst.root.left.key)    # Output: 8 (5 replaced by its in-order successor)
+    print("  New left child of 10:", bst.root.left.key)
 else:
-    print(bst.root.left)        # Output: None (if no successor is present)
-
-bst.delete(10)  # Delete the root
-print(bst.root.key)             # Output: 15 (new root after deletion)
-
-# Final structure of the tree
-print("Final Tree Structure:")
-print(bst.root.key)             # Output: 15
-print(bst.root.left.key)        # Output: 8
-print(bst.root.right.left.key)  # Output: 12
+    print("  Left child is None")
+# The tree now becomes:
+#         10
+#        /  \
+#       8    15
+#      /    /
+#     2    12
+```
+```text
+After Deleting 5:
+  New left child of 10: 8
+```
+```python
+# Delete the root (10). The in-order successor of 10 (which is 12) replaces it.
+bst.delete(10)
+print("\nAfter Deleting 10:")
+print("  New Root:", bst.root.key)
+```
+```text
+After Deleting 10:
+  New Root: 12
+```
+```python
+# Final structure.
+print("\nFinal Tree Structure:")
+print("  Root:", bst.root.key)
+print("  Left Child:", bst.root.left.key)
+if bst.root.right:
+    print("  Right Child:", bst.root.right.key)
+else:
+    print("  Right Child: None")
+# The final tree is:
+#
+#         12
+#        /  \
+#       8    15
+#      /     
+#     2   
+```
+```text
+Final Tree Structure:
+  Root: 12
+  Left Child: 8
+  Right Child: 15
 ```
 
 ## Running Tests
